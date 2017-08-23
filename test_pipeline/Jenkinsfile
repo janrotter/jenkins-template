@@ -1,0 +1,18 @@
+pipeline {
+  agent any
+  environment {
+    HELLO = "world"
+  }
+  stages {
+    stage("Build") {
+      steps {
+        sh 'Hello!'
+      }
+    }
+  }
+  post {
+    always {
+      deleteDir()
+    }
+  }
+}
