@@ -1,6 +1,6 @@
-.PHONY: all init build up logs adminpass stop removeall
+.PHONY: all init build up logs adminpass stop forcereset shell
 
-all: up 
+all: up
 
 init:
 	mkdir -p data
@@ -24,3 +24,7 @@ stop:
 forcereset: stop
 	docker-compose rm --force
 	rm -rf data
+
+shell:
+	docker-compose exec jenkins bash
+
