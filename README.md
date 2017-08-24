@@ -34,3 +34,20 @@ multibranchPipelineJob(projectName) {
     }
 }
 ```
+
+```
+pipelineJob('.pipeline sandbox') {
+    definition {
+        cps {
+            script('''
+                node {
+                    stage('somestage') {
+                        sh 'echo hello'
+                    }
+                }
+            '''.stripIndent())
+            sandbox()
+        }
+    }
+}
+```
