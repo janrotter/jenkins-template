@@ -6,4 +6,31 @@
 
 The important part of the callback URL is /securityRealm/finishLogin
 
+```
+def projectName='jenkins-pipeline-sample'
+multibranchPipelineJob(projectName) {
+    branchSources {
+        github {
+            repoOwner('janrotter')
+            repository(projectName)
+            scanCredentialsId('janrotter-bot.github.com')
+        }
+    }
+    orphanedItemStrategy {
+        discardOldItems {
+            numToKeep(20)
+        }
+    }
 
+    triggers {
+        periodic(10)
+    }
+
+    orphanedItemStrategy {
+        discardOldItems {
+            daysToKeep(1)
+            numToKeep(3)
+        }
+    }
+}
+```
