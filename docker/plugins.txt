@@ -12,6 +12,7 @@ workflow-aggregator:latest
 git:latest
 matrix-auth:latest
 junit:latest
+job-dsl:latest
 
 github-oauth:latest
 slack:latest
