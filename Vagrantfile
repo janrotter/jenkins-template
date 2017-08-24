@@ -57,5 +57,8 @@ Vagrant.configure("2") do |config|
 
     # Allow vagrant user to use docker without sudo
     adduser vagrant docker
+
+    # DO NOT USE THIS OUTSIDE THE VAGRANT BOX!
+    chmod ugo+rw /var/run/docker.sock
   SHELL
 end
