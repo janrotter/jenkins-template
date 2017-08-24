@@ -4,6 +4,8 @@ services:
   jenkins:
     build:
       context: ./docker
+      args:
+        docker_gid: 50
     ports:
       - '127.0.0.1:8080:8080'
     volumes:
